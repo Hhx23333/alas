@@ -266,5 +266,15 @@
     "Storage": {
       "Storage": {}
     }
+  },
+  "MaaUpdates": {
+    "MaaUpdates": {
+      "UpdateCore": false,
+      "UpdateChannel": "Stable",
+      "UpdateResource": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
   }
 }

@@ -1,11 +1,12 @@
-import os
-import re
-import json
-import time
-import requests
 import datetime
+import json
+import os
+import pathlib
+import re
+import time
 from typing import Any
 
+import requests
 from cached_property import cached_property
 
 from deploy.config import DeployConfig
@@ -14,9 +15,8 @@ from module.config.utils import read_file, deep_get, get_server_last_update
 from module.device.connection_attr import ConnectionAttr
 from module.exception import RequestHumanTakeover
 from module.logger import logger
-
-from submodule.AlasMaaBridge.module.config.config import ArknightsConfig
 from submodule.AlasMaaBridge.module.asst import asst, utils
+from submodule.AlasMaaBridge.module.config.config import ArknightsConfig
 
 
 class AssistantHandler:
@@ -32,6 +32,7 @@ class AssistantHandler:
         AssistantHandler.Message = utils.Message
         AssistantHandler.InstanceOptionType = utils.InstanceOptionType
         AssistantHandler.Asst.load(path, user_dir=path, incremental_path=incremental_path)
+        AssistantHandler.Asst.load(path=path, incremental_path=pathlib.Path(path) / 'cache')
 
         AssistantHandler.ASST_HANDLER = None
 
@@ -459,7 +460,6 @@ class AssistantHandler:
                                                                                                 "生活至上分队",
                                                                                                 "科学主义分队",
                                                                                                 "特训分队"]):
-
             args["squad"] = "指挥分队"
         if self.config.MaaRoguelike_CoreChar:
             args["core_char"] = self.config.MaaRoguelike_CoreChar

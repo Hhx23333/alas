@@ -1114,5 +1114,34 @@
         "display": "disabled"
       }
     }
+  },
+  "MaaUpdates": {
+    "MaaUpdates": {
+      "UpdateCore": {
+        "type": "checkbox",
+        "value": false
+      },
+      "UpdateChannel": {
+        "type": "select",
+        "value": "Stable",
+        "option": [
+          "Stable",
+          "Beta",
+          "Nightly"
+        ]
+      },
+      "UpdateResource": {
+        "type": "checkbox",
+        "value": true
+      }
+    },
+    "Storage": {
+      "Storage": {
+        "type": "storage",
+        "value": {},
+        "valuetype": "ignore",
+        "display": "disabled"
+      }
+    }
   }
 }
